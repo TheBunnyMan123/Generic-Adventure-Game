@@ -21,7 +21,7 @@ SOFTWARE.
 
 
 using System;
-
+using System.Collections.Generic;
 
 
 namespace Generic_Adventure_Game {
@@ -29,18 +29,30 @@ namespace Generic_Adventure_Game {
 
         public static Boolean NightmareMode = false;
         public static List<Item> Inventory = new List<Item> {};
+        public static List<HealItem> HealInventory = new List<HealItem> {};
+        public static List<Weapon> WeaponInventory = new List<Weapon> {};
+        public static List<Tool> ToolInventory = new List<Tool> {};
 
         public static void Main(string[] args) {
             // cool different modes
-            if (args[0] == "veryhardnightmaremode") {
-                NightmareMode = true;
-                Console.WriteLine("Very Hard Nightmare Mode Activated!");
-            }
-            if (args[0] == "test") {
-                Inventory.Add(new Item("Example Item"));
-                Inventory.Add(new HealItem("Example Heal", 1, 10));
-                Inventory.Add(new Tool("Example Tool", 10));
-                Inventory.Add(new Weapon("Example Weapon", 10));
+            try {
+                if (args[0] == "veryhardnightmaremode") {
+                    NightmareMode = true;
+                    Console.WriteLine("Very Hard Nightmare Mode Activated!");
+                }
+                if (args[0] == "test") {
+                    Inventory.Add(new Item("Example Item"));
+                    HealInventory.Add(new HealItem("Example Heal", 1, 10));
+                    ToolInventory.Add(new Tool("Example Tool", 10));
+                    WeaponInventory.Add(new Weapon("Example Weapon", 10));
+
+                    Console.WriteLine(WeaponInventory[0].Name);
+                    Console.WriteLine(ToolInventory[0].Use());
+                }
+            } catch(Exception exception) {
+                if (!exception.GetType().Equals(new IndexOutOfRangeException().GetType())) {
+                    Console.WriteLine(exception.Message);
+                }
             }
         }
     }

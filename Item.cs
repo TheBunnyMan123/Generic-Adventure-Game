@@ -30,8 +30,11 @@ namespace Generic_Adventure_Game {
         public Item(string SetName) {
             this.Name = SetName;
         }
-        static void Use() {
-            return;
+        public Item() {
+            this.Name = "N/A";
+        }
+        public object? Use() {
+            return null;
         }
     }
 }

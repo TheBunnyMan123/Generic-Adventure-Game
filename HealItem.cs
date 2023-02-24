@@ -24,6 +24,7 @@ using System;
 
 namespace Generic_Adventure_Game {
     internal class HealItem:Item {
+        // TODO: Implement Healing
         public int CooldownTurns;
         public int HealAmount;
         public HealItem(string SetName, int Cooldown, int SetHealAmount) {
@@ -31,8 +32,8 @@ namespace Generic_Adventure_Game {
             this.CooldownTurns = Cooldown;
             this.HealAmount = SetHealAmount;
         }
-        static void Use() {
-            return;
+        public new string Use() {
+            return "true -- "+this.HealAmount;
         }
     }
 }

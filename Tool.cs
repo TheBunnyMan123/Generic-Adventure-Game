@@ -24,14 +24,14 @@ using System;
 
 namespace Generic_Adventure_Game {
     internal class Tool:Item {
-        public int ToolDamage;
+        public int Damage;
 
-        public Tool(string SetName, int SetToolDamage) {
+        public Tool(string SetName, int SetDamage) {
             this.Name = SetName;
-            this.ToolDamage = SetToolDamage;
+            this.Damage = SetDamage;
         }
-        static void Use() {
-            return;
+        public new string Use() {
+            return this.Damage.ToString();
         }
     }
 }
